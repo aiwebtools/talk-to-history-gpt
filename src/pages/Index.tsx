@@ -45,10 +45,34 @@ const Index = () => {
       {/* Header */}
       <header className="py-4 px-6 border-b border-border">
         <div className="container max-w-6xl mx-auto flex justify-between items-center">
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
+            {/* Logo */}
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                <path d="M19 9h-1a7 7 0 0 0-14 0H3a9 9 0 0 0 9 9h.5a9 9 0 0 0 9-9.5" />
+              </svg>
+            </div>
+            
+            {/* Title */}
             <h1 className="text-2xl font-serif font-medium">
               <span className="text-primary">Talk to</span> History
             </h1>
+            
+            {/* Presented by text */}
+            <span className="text-xs text-muted-foreground ml-2">
+              Presented by <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">AiWebTools.Ai</a>
+            </span>
           </div>
           
           {appState !== AppState.WELCOME && (
