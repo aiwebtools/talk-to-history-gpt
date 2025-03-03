@@ -35,17 +35,6 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
           </div>
           
           <div className="flex flex-wrap justify-center gap-2 w-full md:w-auto">
-            <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <Button 
-                variant="secondary" 
-                size="sm" 
-                className="w-full flex items-center justify-center gap-2" 
-                icon={<Layers size={16} />}
-              >
-                MORE AI TOOLS
-              </Button>
-            </a>
-            
             <a href="https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button 
                 variant="secondary" 
@@ -65,6 +54,17 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
                 icon={<Clock size={16} />}
               >
                 TIME MACHINE GPT
+              </Button>
+            </a>
+            
+            <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button 
+                variant="secondary" 
+                size="sm" 
+                className="w-full flex items-center justify-center gap-2" 
+                icon={<Layers size={16} />}
+              >
+                MORE AI TOOLS
               </Button>
             </a>
           </div>
