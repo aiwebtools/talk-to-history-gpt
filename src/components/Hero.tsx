@@ -9,6 +9,15 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onStartConversation, className }) => {
+  const handleStartClick = () => {
+    // Open the specified URL in a new window/tab
+    window.open('https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt', '_blank');
+    
+    // Also call the original onStartConversation function if needed
+    // Commenting this out since we're redirecting instead
+    // onStartConversation();
+  };
+
   return (
     <div className={cn('text-center max-w-5xl mx-auto px-4', className)}>
       <div className="smooth-fade-in">
@@ -23,7 +32,7 @@ const Hero: React.FC<HeroProps> = ({ onStartConversation, className }) => {
       </div>
 
       <div className="smooth-fade-in animation-delay-200">
-        <Button size="lg" onClick={onStartConversation} className="min-w-40">
+        <Button size="lg" onClick={handleStartClick} className="min-w-40">
           Start Conversation
         </Button>
         <p className="mt-3 text-sm text-muted-foreground">

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { type HistoricalFigure } from '@/lib/constants';
 import Hero from '@/components/Hero';
@@ -17,26 +16,22 @@ const Index = () => {
 
   const handleStartConversation = () => {
     setAppState(AppState.SELECT_CHARACTER);
-    // Smooth scroll to top when transitioning
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleCharacterSelect = (character: HistoricalFigure) => {
     setSelectedCharacter(character);
     setAppState(AppState.CHAT);
-    // Smooth scroll to top when transitioning
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleBackToSelection = () => {
     setAppState(AppState.SELECT_CHARACTER);
-    // Smooth scroll to top when transitioning
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleBackToWelcome = () => {
     setAppState(AppState.WELCOME);
-    // Smooth scroll to top when transitioning
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -46,7 +41,6 @@ const Index = () => {
       <header className="py-4 px-6 border-b border-border">
         <div className="container max-w-6xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2">
-            {/* Logo */}
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -64,12 +58,10 @@ const Index = () => {
               </svg>
             </div>
             
-            {/* Title */}
             <h1 className="text-2xl font-serif font-medium">
               <span className="text-primary">Talk to</span> History
             </h1>
             
-            {/* Presented by text */}
             <span className="text-xs text-muted-foreground ml-2">
               Presented by <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">AiWebTools.Ai</a>
             </span>
