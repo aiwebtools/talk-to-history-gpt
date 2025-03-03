@@ -67,17 +67,6 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
             </Button>
           </a>
           
-          <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer">
-            <Button 
-              variant="secondary" 
-              size="sm" 
-              className="flex items-center gap-2" 
-              icon={<Globe size={16} />}
-            >
-              AIWEBTOOLS.AI
-            </Button>
-          </a>
-          
           <a href="https://timemachinegpt.xyz/" target="_blank" rel="noopener noreferrer">
             <Button 
               variant="outline" 
@@ -112,17 +101,6 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
                 icon={<MessageSquare size={16} />}
               >
                 TALK TO HISTORY GPT
-              </Button>
-            </a>
-            
-            <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="w-full">
-              <Button 
-                variant="secondary" 
-                size="sm" 
-                className="w-full flex items-center justify-center gap-2" 
-                icon={<Globe size={16} />}
-              >
-                AIWEBTOOLS.AI
               </Button>
             </a>
             
