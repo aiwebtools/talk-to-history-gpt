@@ -114,6 +114,22 @@ const Hero: React.FC<HeroProps> = ({ onStartConversation, className }) => {
           </p>
         </div>
       </div>
+
+      <div className="mt-16 smooth-fade-in animation-delay-600">
+        <h3 className="text-2xl font-serif font-medium mb-6">See It In Action</h3>
+        <div className="aspect-video max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg">
+          <iframe 
+            width="100%" 
+            height="100%" 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+            title="Talk to History Demo" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen
+            className="w-full h-full"
+          ></iframe>
+        </div>
+      </div>
     </div>
   );
 };
