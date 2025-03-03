@@ -37,13 +37,14 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
             </svg>
           </div>
           
-          <h1 className="text-xl sm:text-2xl font-serif font-medium">
-            <span className="text-primary">Talk to</span> History
-          </h1>
-          
-          <span className="hidden sm:inline text-xs text-muted-foreground ml-2">
-            Presented by <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">AiWebTools.Ai</a>
-          </span>
+          <div className="flex flex-col items-start">
+            <h1 className="text-xl sm:text-2xl font-serif font-medium">
+              <span className="text-primary">Talk to</span> History
+            </h1>
+            <span className="text-xs text-muted-foreground">
+              Presented by <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">AiWebTools.Ai</a>
+            </span>
+          </div>
         </div>
         
         {/* Mobile menu button */}
