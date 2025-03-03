@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Clock, Globe, Menu, X } from 'lucide-react';
+import { Clock, Globe, Menu, X, MessageSquare } from 'lucide-react';
 import Button from '@/components/shared/Button';
 import { AppState } from '@/lib/types';
 
@@ -56,6 +56,17 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
         
         {/* Desktop navigation */}
         <div className="hidden md:flex items-center gap-3">
+          <a href="https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt" target="_blank" rel="noopener noreferrer">
+            <Button 
+              variant="primary" 
+              size="sm" 
+              className="flex items-center gap-2" 
+              icon={<MessageSquare size={16} />}
+            >
+              TALK TO HISTORY GPT
+            </Button>
+          </a>
+          
           <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer">
             <Button 
               variant="secondary" 
@@ -93,6 +104,17 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
       {mobileMenuOpen && (
         <div className="md:hidden mt-4 pt-4 border-t border-border">
           <div className="flex flex-col space-y-3 px-2">
+            <a href="https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt" target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button 
+                variant="primary" 
+                size="sm" 
+                className="w-full flex items-center justify-center gap-2" 
+                icon={<MessageSquare size={16} />}
+              >
+                TALK TO HISTORY GPT
+              </Button>
+            </a>
+            
             <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="w-full">
               <Button 
                 variant="secondary" 
