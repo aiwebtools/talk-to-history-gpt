@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Clock, Globe, Menu, X, MessageSquare } from 'lucide-react';
+import { Clock, Globe, Menu, X, MessageSquare, Layers } from 'lucide-react';
 import Button from '@/components/shared/Button';
 import { AppState } from '@/lib/types';
 
@@ -93,6 +93,17 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
       {mobileMenuOpen && (
         <div className="md:hidden mt-4 pt-4 border-t border-border">
           <div className="flex flex-col space-y-3 px-2">
+            <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button 
+                variant="primary" 
+                size="sm" 
+                className="w-full flex items-center justify-center gap-2" 
+                icon={<Layers size={16} />}
+              >
+                MORE AI TOOLS
+              </Button>
+            </a>
+            
             <a href="https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt" target="_blank" rel="noopener noreferrer" className="w-full">
               <Button 
                 variant="primary" 
