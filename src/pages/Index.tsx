@@ -4,6 +4,8 @@ import { type HistoricalFigure } from '@/lib/constants';
 import Hero from '@/components/Hero';
 import CharacterSelect from '@/components/CharacterSelect';
 import ChatInterface from '@/components/ChatInterface';
+import Button from '@/components/shared/Button';
+import { Clock } from 'lucide-react';
 
 enum AppState {
   WELCOME,
@@ -68,14 +70,27 @@ const Index = () => {
             </span>
           </div>
           
-          {appState !== AppState.WELCOME && (
-            <button
-              onClick={handleBackToWelcome}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Back to Home
-            </button>
-          )}
+          <div className="flex items-center gap-3">
+            <a href="https://timemachinegpt.xyz/" target="_blank" rel="noopener noreferrer">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="flex items-center gap-2" 
+                icon={<Clock size={16} />}
+              >
+                Time Machine GPT
+              </Button>
+            </a>
+            
+            {appState !== AppState.WELCOME && (
+              <button
+                onClick={handleBackToWelcome}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Back to Home
+              </button>
+            )}
+          </div>
         </div>
       </header>
 
