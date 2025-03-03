@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Button from './shared/Button';
 import { cn } from '@/lib/utils';
@@ -61,7 +62,16 @@ const Hero: React.FC<HeroProps> = ({
         </p>
       </div>
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-left smooth-fade-in animation-delay-400">
+      {/* Video Section - Moved above the feature cards */}
+      <div className="mt-16 smooth-fade-in animation-delay-400">
+        <h3 className="text-2xl font-serif font-medium mb-6">"Those who cannot remember the past are condemned to repeat it." – George Santayana</h3>
+        <div className="aspect-video max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-[1.02] duration-300 hover:box-glow mb-16">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/eyASGMPLpLM" title="Talk to History Demo" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full"></iframe>
+        </div>
+      </div>
+
+      {/* Feature Cards Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left smooth-fade-in animation-delay-600">
         <div className="p-6 rounded-xl bg-card border border-border hover-lift transition-all duration-500 group">
           <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -104,13 +114,6 @@ const Hero: React.FC<HeroProps> = ({
             Learn history in an immersive and memorable way, gaining insights into historical events
             and perspectives directly from the sources.
           </p>
-        </div>
-      </div>
-
-      <div className="mt-16 smooth-fade-in animation-delay-600">
-        <h3 className="text-2xl font-serif font-medium mb-6">"Those who cannot remember the past are condemned to repeat it." – George Santayana</h3>
-        <div className="aspect-video max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-[1.02] duration-300 hover:box-glow">
-          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/eyASGMPLpLM" title="Talk to History Demo" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full"></iframe>
         </div>
       </div>
     </div>;
