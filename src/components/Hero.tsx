@@ -35,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({ onStartConversation, className }) => {
           Start Conversation
         </Button>
         <p className="mt-3 text-sm text-muted-foreground">
-          Start talking with historical figures right away for free and learn from the past through immersive conversations with history itself.
+          Start chatting with historical figures for free and experience immersive conversations that bring history to life.
         </p>
       </div>
 
