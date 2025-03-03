@@ -39,7 +39,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
       <header className="py-4 px-6 border-b border-border">
         <div className="container max-w-6xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2">
@@ -104,7 +103,6 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Main content */}
       <main className="flex-1 py-16 px-6">
         <div className="container max-w-6xl mx-auto">
           {appState === AppState.WELCOME && (
@@ -124,7 +122,6 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Footer */}
       <footer className="py-6 px-6 border-t border-border bg-card">
         <div className="container max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
@@ -177,9 +174,19 @@ const Index = () => {
           
           <div className="text-center">
             <p className="text-sm text-muted-foreground">© 2025 AI WEB TOOLS LLC. All rights reserved.</p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Experience history through conversation.
-            </p>
+            <div className="mt-2 flex justify-center items-center gap-4">
+              <p className="text-sm text-muted-foreground">
+                Experience history through conversation.
+              </p>
+              <a 
+                href="https://aiwebtools.ai/terms-of-services" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+              >
+                Terms of Service
+              </a>
+            </div>
           </div>
         </div>
       </footer>
