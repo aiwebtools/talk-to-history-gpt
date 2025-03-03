@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Button from './shared/Button';
 import { cn } from '@/lib/utils';
@@ -36,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({ onStartConversation, className }) => {
           Start Conversation
         </Button>
         <p className="mt-3 text-sm text-muted-foreground">
-          No account required. Start talking with historical figures right away.
+          Start talking with historical figures right away for free and learn from the past through immersive conversations with history itself.
         </p>
       </div>
 
