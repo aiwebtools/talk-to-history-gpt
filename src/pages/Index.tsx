@@ -1,10 +1,11 @@
+
 import React, { useState } from 'react';
 import { type HistoricalFigure } from '@/lib/constants';
 import Hero from '@/components/Hero';
 import CharacterSelect from '@/components/CharacterSelect';
 import ChatInterface from '@/components/ChatInterface';
 import Button from '@/components/shared/Button';
-import { Clock, Globe } from 'lucide-react';
+import { Clock, Globe, Menu, X } from 'lucide-react';
 
 enum AppState {
   WELCOME,
@@ -15,6 +16,7 @@ enum AppState {
 const Index = () => {
   const [appState, setAppState] = useState<AppState>(AppState.WELCOME);
   const [selectedCharacter, setSelectedCharacter] = useState<HistoricalFigure | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleStartConversation = () => {
     setAppState(AppState.SELECT_CHARACTER);
@@ -37,9 +39,13 @@ const Index = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="py-4 px-6 border-b border-border">
+      <header className="py-4 px-4 sm:px-6 border-b border-border">
         <div className="container max-w-6xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
@@ -59,16 +65,25 @@ const Index = () => {
               </svg>
             </div>
             
-            <h1 className="text-2xl font-serif font-medium">
+            <h1 className="text-xl sm:text-2xl font-serif font-medium">
               <span className="text-primary">Talk to</span> History
             </h1>
             
-            <span className="text-xs text-muted-foreground ml-2">
+            <span className="hidden sm:inline text-xs text-muted-foreground ml-2">
               Presented by <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">AiWebTools.Ai</a>
             </span>
           </div>
           
-          <div className="flex items-center gap-3">
+          {/* Mobile menu button */}
+          <button 
+            onClick={toggleMobileMenu}
+            className="md:hidden flex items-center justify-center p-2 rounded-md text-primary"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+          
+          {/* Desktop navigation */}
+          <div className="hidden md:flex items-center gap-3">
             <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer">
               <Button 
                 variant="secondary" 
@@ -101,9 +116,47 @@ const Index = () => {
             )}
           </div>
         </div>
+        
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden mt-4 pt-4 border-t border-border">
+            <div className="flex flex-col space-y-3 px-2">
+              <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="w-full">
+                <Button 
+                  variant="secondary" 
+                  size="sm" 
+                  className="w-full flex items-center justify-center gap-2" 
+                  icon={<Globe size={16} />}
+                >
+                  AIWEBTOOLS.AI
+                </Button>
+              </a>
+              
+              <a href="https://timemachinegpt.xyz/" target="_blank" rel="noopener noreferrer" className="w-full">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full flex items-center justify-center gap-2" 
+                  icon={<Clock size={16} />}
+                >
+                  TIME MACHINE GPT
+                </Button>
+              </a>
+              
+              {appState !== AppState.WELCOME && (
+                <button
+                  onClick={handleBackToWelcome}
+                  className="w-full py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Back to Home
+                </button>
+              )}
+            </div>
+          </div>
+        )}
       </header>
 
-      <main className="flex-1 py-16 px-6">
+      <main className="flex-1 py-8 sm:py-16 px-4 sm:px-6">
         <div className="container max-w-6xl mx-auto">
           {appState === AppState.WELCOME && (
             <Hero onStartConversation={handleStartConversation} />
@@ -122,7 +175,7 @@ const Index = () => {
         </div>
       </main>
 
-      <footer className="py-6 px-6 border-t border-border bg-card">
+      <footer className="py-6 px-4 sm:px-6 border-t border-border bg-card">
         <div className="container max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
             <div className="flex items-center">
@@ -174,7 +227,7 @@ const Index = () => {
           
           <div className="text-center">
             <p className="text-sm text-muted-foreground">© 2025 AI WEB TOOLS LLC. All rights reserved.</p>
-            <div className="mt-2 flex justify-center items-center gap-4">
+            <div className="mt-2 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4">
               <p className="text-sm text-muted-foreground">
                 Experience history through conversation.
               </p>
