@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { type HistoricalFigure } from '@/lib/constants';
 import Hero from '@/components/Hero';
 import CharacterSelect from '@/components/CharacterSelect';
@@ -17,6 +16,27 @@ const Index = () => {
   const [appState, setAppState] = useState<AppState>(AppState.WELCOME);
   const [selectedCharacter, setSelectedCharacter] = useState<HistoricalFigure | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isFacebookBrowser, setIsFacebookBrowser] = useState(false);
+
+  useEffect(() => {
+    // Detect Facebook in-app browser
+    const userAgent = navigator.userAgent || navigator.vendor;
+    const isFB = userAgent.indexOf('FBAN') > -1 || userAgent.indexOf('FBAV') > -1;
+    setIsFacebookBrowser(isFB);
+    
+    // Force layout recalculation for Facebook browser
+    if (isFB) {
+      document.body.style.minHeight = '100vh';
+      document.body.style.display = 'flex';
+      document.body.style.flexDirection = 'column';
+      
+      // Small timeout to ensure proper rendering in Facebook browser
+      setTimeout(() => {
+        window.scrollTo(0, 1);
+        window.scrollTo(0, 0);
+      }, 100);
+    }
+  }, []);
 
   const handleStartConversation = () => {
     setAppState(AppState.SELECT_CHARACTER);
@@ -43,8 +63,11 @@ const Index = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  // Wrapper class for Facebook browser
+  const containerClass = `min-h-screen flex flex-col ${isFacebookBrowser ? 'fb-browser-fix' : ''}`;
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className={containerClass}>
       <header className="py-4 px-4 sm:px-6 border-b border-border">
         <div className="container max-w-6xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2">
@@ -175,7 +198,7 @@ const Index = () => {
         </div>
       </main>
 
-      <footer className="py-6 px-4 sm:px-6 border-t border-border bg-card">
+      <footer className={`py-6 px-4 sm:px-6 border-t border-border bg-card ${isFacebookBrowser ? 'fb-footer-fix' : ''}`}>
         <div className="container max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
             <div className="flex items-center">
