@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Button from '@/components/shared/Button';
-import { Clock, Globe, Layers } from 'lucide-react';
+import { Clock, Layers, MessageSquare } from 'lucide-react';
 
 interface FooterProps {
   isFacebookBrowser: boolean;
@@ -46,14 +46,14 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
               </Button>
             </a>
             
-            <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer">
+            <a href="https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt" target="_blank" rel="noopener noreferrer">
               <Button 
                 variant="secondary" 
                 size="sm" 
                 className="flex items-center gap-2" 
-                icon={<Globe size={16} />}
+                icon={<MessageSquare size={16} />}
               >
-                AIWEBTOOLS.AI
+                TALK TO HISTORY GPT
               </Button>
             </a>
             
