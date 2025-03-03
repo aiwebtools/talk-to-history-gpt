@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Button from '@/components/shared/Button';
-import { Clock, Globe } from 'lucide-react';
+import { Clock, Globe, Layers } from 'lucide-react';
 
 interface FooterProps {
   isFacebookBrowser: boolean;
@@ -35,6 +35,17 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
           </div>
           
           <div className="flex items-center gap-3">
+            <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer">
+              <Button 
+                variant="secondary" 
+                size="sm" 
+                className="flex items-center gap-2" 
+                icon={<Layers size={16} />}
+              >
+                MORE AI TOOLS
+              </Button>
+            </a>
+            
             <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer">
               <Button 
                 variant="secondary" 
