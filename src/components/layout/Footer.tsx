@@ -34,34 +34,34 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
             </span>
           </div>
           
-          <div className="flex items-center gap-3">
-            <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer">
+          <div className="flex flex-wrap justify-center gap-2 w-full md:w-auto">
+            <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button 
                 variant="secondary" 
                 size="sm" 
-                className="flex items-center gap-2" 
+                className="w-full flex items-center justify-center gap-2" 
                 icon={<Layers size={16} />}
               >
                 MORE AI TOOLS
               </Button>
             </a>
             
-            <a href="https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt" target="_blank" rel="noopener noreferrer">
+            <a href="https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button 
                 variant="secondary" 
                 size="sm" 
-                className="flex items-center gap-2" 
+                className="w-full flex items-center justify-center gap-2" 
                 icon={<MessageSquare size={16} />}
               >
                 TALK TO HISTORY GPT
               </Button>
             </a>
             
-            <a href="https://timemachinegpt.xyz/" target="_blank" rel="noopener noreferrer">
+            <a href="https://timemachinegpt.xyz/" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="flex items-center gap-2" 
+                className="w-full flex items-center justify-center gap-2" 
                 icon={<Clock size={16} />}
               >
                 TIME MACHINE GPT
