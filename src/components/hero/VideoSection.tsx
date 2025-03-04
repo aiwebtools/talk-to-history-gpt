@@ -25,9 +25,9 @@ const VideoSection: React.FC = () => {
   }, []);
 
   return (
-    <div id="video-section" className="mt-12 sm:mt-16 smooth-fade-in animation-delay-400">
-      <h3 className="text-xl sm:text-2xl font-serif font-medium mb-4 sm:mb-6 px-2">"Those who cannot remember the past are condemned to repeat it." – George Santayana</h3>
-      <div className="aspect-video max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-[1.02] duration-300 hover:box-glow mb-12 sm:mb-16">
+    <div id="video-section" className="mt-8 sm:mt-16 smooth-fade-in animation-delay-400 px-2 sm:px-4">
+      <h3 className="text-xl sm:text-2xl font-serif font-medium mb-4 sm:mb-6">"Those who cannot remember the past are condemned to repeat it." – George Santayana</h3>
+      <div className="aspect-video w-full md:max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-[1.02] duration-300 hover:box-glow mb-8 sm:mb-16">
         {(isIntersecting || hasLoaded) && (
           <iframe 
             width="100%" 
