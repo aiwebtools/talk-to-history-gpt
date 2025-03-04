@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -47,10 +48,23 @@
     @apply bg-background text-foreground font-sans antialiased;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    touch-action: manipulation; /* Improve touch responsiveness */
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+  }
+  
+  /* Better tap targets for mobile */
+  button, a {
+    @apply cursor-pointer;
+  }
+  
+  .touch-device button, 
+  .touch-device a {
+    @apply min-h-10 min-w-10;
   }
 }
 
@@ -108,8 +122,14 @@
     z-index: 10;
     transform: translateZ(0);
   }
+  
+  /* Optimize touch interactions */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
 }
 
+/* Keep existing animation keyframes */
 @keyframes smoothFadeIn {
   0% {
     opacity: 0;
@@ -159,6 +179,7 @@
   }
 }
 
+/* Keep existing classes */
 .glass-morphism {
   @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg;
 }
@@ -187,16 +208,36 @@
   animation: float 6s ease-in-out infinite;
 }
 
+/* Better iOS compatibility */
 @supports (-webkit-touch-callout: none) {
   html, body {
     -webkit-text-size-adjust: 100%;
     height: -webkit-fill-available;
   }
+  
+  /* Disable zooming on input fields for iOS */
+  input, select, textarea {
+    font-size: 16px;
+  }
 }
 
+/* Legacy browser support */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   body {
     display: flex;
     flex-direction: column;
+  }
+}
+
+/* Reduce animation complexity on low-powered devices */
+@media (prefers-reduced-motion) {
+  .smooth-fade-in, .chat-message-appear {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .animate-float {
+    animation: none;
   }
 }

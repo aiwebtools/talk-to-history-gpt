@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { type HistoricalFigure } from '@/lib/constants';
 import { AppState } from '@/lib/types';
 import Header from '@/components/layout/Header';
@@ -16,6 +16,12 @@ const Index = () => {
     const userAgent = navigator.userAgent || navigator.vendor;
     const isFB = userAgent.indexOf('FBAN') > -1 || userAgent.indexOf('FBAV') > -1;
     setIsFacebookBrowser(isFB);
+    
+    // Apply touch-friendly optimization for mobile devices
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile || isFB) {
+      document.documentElement.classList.add('touch-device');
+    }
     
     // Force layout recalculation for Facebook browser
     if (isFB) {
@@ -62,13 +68,15 @@ const Index = () => {
         handleBackToWelcome={handleBackToWelcome} 
       />
       
-      <MainContent
-        appState={appState}
-        selectedCharacter={selectedCharacter}
-        onStartConversation={handleStartConversation}
-        onCharacterSelect={handleCharacterSelect}
-        onBackToSelection={handleBackToSelection}
-      />
+      <Suspense fallback={<div className="flex-1 flex items-center justify-center">Loading...</div>}>
+        <MainContent
+          appState={appState}
+          selectedCharacter={selectedCharacter}
+          onStartConversation={handleStartConversation}
+          onCharacterSelect={handleCharacterSelect}
+          onBackToSelection={handleBackToSelection}
+        />
+      </Suspense>
       
       <Footer isFacebookBrowser={isFacebookBrowser} />
     </div>

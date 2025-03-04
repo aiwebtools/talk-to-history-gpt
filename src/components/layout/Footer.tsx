@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Button from '@/components/shared/Button';
 import { Clock, Layers, MessageSquare } from 'lucide-react';
@@ -8,9 +9,9 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
   return (
-    <footer className={`py-6 px-4 sm:px-6 border-t border-border bg-card ${isFacebookBrowser ? 'fb-footer-fix' : ''}`}>
+    <footer className={`py-4 sm:py-6 px-3 sm:px-6 border-t border-border bg-card ${isFacebookBrowser ? 'fb-footer-fix' : ''}`}>
       <div className="container max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3 mb-4 sm:mb-6">
           <div className="flex items-center">
             <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
               <svg
@@ -38,7 +39,7 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
               <Button 
                 variant="secondary" 
                 size="sm" 
-                className="w-full flex items-center justify-center gap-2" 
+                className="w-full flex items-center justify-center gap-2 touch-manipulation" 
                 icon={<MessageSquare size={16} />}
               >
                 TALK TO HISTORY GPT
@@ -49,7 +50,7 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="w-full flex items-center justify-center gap-2" 
+                className="w-full flex items-center justify-center gap-2 touch-manipulation" 
                 icon={<Clock size={16} />}
               >
                 TIME MACHINE GPT
@@ -60,7 +61,7 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
               <Button 
                 variant="secondary" 
                 size="sm" 
-                className="w-full flex items-center justify-center gap-2" 
+                className="w-full flex items-center justify-center gap-2 touch-manipulation" 
                 icon={<Layers size={16} />}
               >
                 MORE AI TOOLS
@@ -70,16 +71,16 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
         </div>
         
         <div className="text-center">
-          <p className="text-sm text-muted-foreground">© 2025 AI WEB TOOLS LLC. All rights reserved.</p>
-          <div className="mt-2 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4">
-            <p className="text-sm text-muted-foreground">
+          <p className="text-xs sm:text-sm text-muted-foreground">© 2025 AI WEB TOOLS LLC. All rights reserved.</p>
+          <div className="mt-2 flex flex-col sm:flex-row justify-center items-center gap-1 sm:gap-4">
+            <p className="text-xs sm:text-sm text-muted-foreground">
               Experience history through conversation.
             </p>
             <a 
               href="https://aiwebtools.ai/terms-of-services" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+              className="text-xs sm:text-sm font-medium text-primary hover:text-primary/80 transition-colors"
             >
               Terms of Service
             </a>
