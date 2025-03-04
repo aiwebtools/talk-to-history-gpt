@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Clock, Globe, Menu, X, MessageSquare, Layers } from 'lucide-react';
 import Button from '@/components/shared/Button';
@@ -47,7 +46,6 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
           </div>
         </div>
         
-        {/* Mobile menu button */}
         <button 
           onClick={toggleMobileMenu}
           className="md:hidden flex items-center justify-center p-2 rounded-md text-primary"
@@ -55,7 +53,6 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         
-        {/* Desktop navigation */}
         <div className="hidden md:flex items-center gap-3">
           <a href="https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt" target="_blank" rel="noopener noreferrer">
             <Button 
@@ -68,7 +65,7 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
             </Button>
           </a>
           
-          <a href="https://timemachinegpt.xyz/" target="_blank" rel="noopener noreferrer">
+          <a href="https://time-machine-gpt.lovable.app/" target="_blank" rel="noopener noreferrer">
             <Button 
               variant="outline" 
               size="sm" 
@@ -90,7 +87,6 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
         </div>
       </div>
       
-      {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="md:hidden mt-4 pt-4 border-t border-border">
           <div className="flex flex-col space-y-3 px-2">
@@ -105,7 +101,7 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
               </Button>
             </a>
             
-            <a href="https://timemachinegpt.xyz/" target="_blank" rel="noopener noreferrer" className="w-full">
+            <a href="https://time-machine-gpt.lovable.app/" target="_blank" rel="noopener noreferrer" className="w-full">
               <Button 
                 variant="outline" 
                 size="sm" 

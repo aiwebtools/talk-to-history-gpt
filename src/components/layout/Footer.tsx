@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Button from '@/components/shared/Button';
 import { Clock, Layers, MessageSquare } from 'lucide-react';
@@ -46,7 +45,7 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
               </Button>
             </a>
             
-            <a href="https://timemachinegpt.xyz/" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <a href="https://time-machine-gpt.lovable.app/" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button 
                 variant="outline" 
                 size="sm" 
