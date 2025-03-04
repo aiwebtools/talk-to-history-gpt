@@ -26,9 +26,9 @@ const StatisticsSection: React.FC = () => {
               <Star className="h-5 w-5 text-accent fill-accent" />
               <Star className="h-5 w-5 text-accent fill-accent" />
               <Star className="h-5 w-5 text-accent fill-accent" />
-              <Star className="h-5 w-5 text-accent fill-accent/50" strokeWidth={1.5} />
+              <Star className="h-5 w-5 text-accent fill-accent/60" strokeWidth={1.5} />
             </div>
-            <span className="text-2xl sm:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent/80 ml-1">4.5</span>
+            <span className="text-2xl sm:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent/80 ml-1">4.6</span>
           </div>
           <p className="text-sm text-muted-foreground">Average Rating</p>
         </div>
