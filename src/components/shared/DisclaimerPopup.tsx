@@ -62,7 +62,7 @@ const DisclaimerPopup = ({ onAgree }: DisclaimerPopupProps) => {
               <li>• Conversations are powered by AI and may not always be historically accurate</li>
               <li>• Historical figures' responses are simulations based on available information</li>
               <li>• This application is for educational and entertainment purposes only</li>
-              <li>• User conversations may be anonymously collected to improve the service</li>
+              <li>• Conversations are subject to OpenAI's privacy policy</li>
             </ul>
           </div>
           
