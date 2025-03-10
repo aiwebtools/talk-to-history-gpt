@@ -39,24 +39,24 @@ const FAQSection: React.FC = () => {
 
   const faqs = [
     {
-      question: "How accurate are the historical conversations?",
-      answer: "The conversations are based on historical records, writings, and knowledge about each figure, but they are AI-generated simulations. While we strive for accuracy, the responses should be considered interpretations rather than exact quotations."
-    },
-    {
       question: "Can I talk to any historical figure?",
-      answer: "We offer a curated selection of significant historical figures from various time periods and fields. We regularly add new personalities based on user interest and available historical information."
+      answer: "Yes, there are no limitations. You can talk to any historical figure from any time period, not just the ones featured on our site. The AI is capable of simulating conversations with virtually anyone from history."
     },
     {
       question: "How does Talk to History GPT work?",
-      answer: "Talk to History uses advanced AI language models trained on historical data to simulate conversations with historical figures. The AI analyzes your questions and generates responses that aim to reflect the known views, speech patterns, and knowledge of each historical personality."
+      answer: "Talk to History is powered by GPT-4o, OpenAI's most advanced AI model. It simulates conversations with historical figures by drawing on vast amounts of historical knowledge and contextual understanding to create realistic and informative responses that reflect the known views, speech patterns, and knowledge of historical personalities."
+    },
+    {
+      question: "How accurate are the historical conversations?",
+      answer: "While powered by GPT-4o with extensive historical knowledge, these are still AI-generated simulations. The responses aim to reflect known historical views and information about each figure, but should be considered interpretations rather than exact historical quotes. For academic research, we recommend verifying information with primary sources."
     },
     {
       question: "Can I use this for educational purposes?",
-      answer: "Absolutely! Talk to History is designed to be an educational tool that makes learning about historical figures more engaging and interactive. Many educators use it as a supplement to traditional history lessons."
+      answer: "Absolutely! Talk to History is designed to be an engaging educational tool that makes learning about historical figures interactive and accessible. Many educators use it to supplement traditional history lessons and spark student interest in historical topics."
     },
     {
       question: "Is my conversation data private?",
-      answer: "We respect your privacy. While anonymized conversation data may be collected to improve the AI models, we don't store personal information with your conversations, and your interactions are not publicly shared."
+      answer: "Yes, your conversations are entirely private. While using the tool, your interactions are subject to OpenAI's privacy policy, but we do not collect or store your conversation data for our own purposes."
     }
   ];
 
