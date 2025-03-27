@@ -4,7 +4,7 @@ import React from 'react';
 // This component adds custom styles for the ElevenLabs widget
 const ElevenLabsWidgetStyles: React.FC = () => {
   return (
-    <style jsx global>{`
+    <style dangerouslySetInnerHTML={{ __html: `
       /* Styling for the ElevenLabs widget */
       elevenlabs-convai {
         --convai-accent-color: var(--primary); /* Match the site's primary color */
@@ -47,7 +47,7 @@ const ElevenLabsWidgetStyles: React.FC = () => {
           --convai-bubble-size: 54px;
         }
       }
-    `}</style>
+    ` }} />
   );
 };
 
