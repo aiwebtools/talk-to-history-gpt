@@ -32,7 +32,7 @@ const VideoSection: React.FC = () => {
           <iframe 
             width="100%" 
             height="100%" 
-            src="https://www.youtube.com/embed/eyASGMPLpLM?vq=hd1080&autoplay=1&rel=0" 
+            src="https://www.youtube.com/embed/m1w0PzHcthI?vq=hd1080&autoplay=1&rel=0" 
             title="Talk to History Demo" 
             frameBorder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
