@@ -64,6 +64,16 @@ const DisclaimerPopup = ({ onAgree }: DisclaimerPopupProps) => {
               <li>• This application is for educational and entertainment purposes only</li>
               <li>• Conversations are subject to OpenAI's privacy policy</li>
             </ul>
+            
+            <div className="mt-3 bg-primary/20 p-3 rounded-lg">
+              <p className="font-medium text-accent">Usage Information:</p>
+              <p className="text-sm mt-1">
+                • <span className="font-bold">ChatGPT Plus users:</span> Unlimited access to all historical figures
+              </p>
+              <p className="text-sm mt-1">
+                • <span className="font-bold">Free accounts:</span> Limited interactions every few hours
+              </p>
+            </div>
           </div>
           
           <div className="pt-2">
