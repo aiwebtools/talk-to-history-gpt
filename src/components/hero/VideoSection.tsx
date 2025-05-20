@@ -43,6 +43,16 @@ const VideoSection: React.FC = () => {
           ></iframe>
         )}
       </div>
+      <div className="text-center">
+        <a 
+          href="https://www.youtube.com/watch?v=m1w0PzHcthI" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-primary hover:underline"
+        >
+          Watch on YouTube
+        </a>
+      </div>
     </div>
   );
 };
