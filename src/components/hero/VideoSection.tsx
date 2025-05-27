@@ -32,7 +32,7 @@ const VideoSection: React.FC = () => {
           <iframe 
             width="100%" 
             height="100%" 
-            src="https://www.youtube.com/embed/m1w0PzHcthI?vq=hd1080&autoplay=1&rel=0" 
+            src="https://www.youtube.com/embed/5t7EXS5tthQ?vq=hd1080&autoplay=1&rel=0" 
             title="Talk to History Demo" 
             frameBorder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -45,7 +45,7 @@ const VideoSection: React.FC = () => {
       </div>
       <div className="text-center">
         <a 
-          href="https://www.youtube.com/watch?v=m1w0PzHcthI" 
+          href="https://www.youtube.com/watch?v=5t7EXS5tthQ" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="text-primary hover:underline"
