@@ -74,7 +74,7 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
           <p className="text-xs sm:text-sm text-muted-foreground">© 2025 AI WEB TOOLS LLC. All rights reserved.</p>
           <div className="mt-2 flex flex-col sm:flex-row justify-center items-center gap-1 sm:gap-4">
             <p className="text-xs sm:text-sm text-muted-foreground">
-              Experience history through conversation. For informational, educational, and research purposes only.
+              For informational, educational, and research purposes only.
             </p>
             <a 
               href="https://aiwebtools.lovable.app/disclaimers" 

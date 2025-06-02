@@ -79,6 +79,7 @@ const DisclaimerPopup = ({ onAgree }: DisclaimerPopupProps) => {
               <p className="text-xs text-white/80">
                 <strong>Disclaimer:</strong> This tool is intended for informational, educational, and research purposes only. 
                 Historical simulations are AI-generated and should not be considered as factual historical records.
+                For full terms, visit <a href="https://aiwebtools.lovable.app/disclaimers" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">our disclaimer page</a>.
               </p>
             </div>
           </div>

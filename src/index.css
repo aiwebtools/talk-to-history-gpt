@@ -7,35 +7,35 @@
 
 @layer base {
   :root {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    --background: 210 50% 6%;
+    --foreground: 45 100% 95%;
 
-    --card: 222 47% 15%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 50% 8%;
+    --card-foreground: 45 100% 95%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 50% 6%;
+    --popover-foreground: 45 100% 95%;
 
-    --primary: 221 83% 65%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 280 100% 70%;
+    --primary-foreground: 45 100% 95%;
 
-    --secondary: 217 33% 25%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 320 80% 65%;
+    --secondary-foreground: 45 100% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 30% 15%;
+    --muted-foreground: 45 50% 70%;
 
-    --accent: 35 91% 52%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 45 100% 60%;
+    --accent-foreground: 220 50% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 45 100% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 221 83% 65%;
+    --border: 220 30% 15%;
+    --input: 220 30% 15%;
+    --ring: 280 100% 70%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
   }
 }
 
@@ -50,14 +50,52 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
-    touch-action: manipulation; /* Improve touch responsiveness */
+    touch-action: manipulation;
+    background: linear-gradient(135deg, 
+      hsl(210, 50%, 6%) 0%, 
+      hsl(240, 60%, 8%) 25%, 
+      hsl(280, 50%, 10%) 50%, 
+      hsl(320, 40%, 8%) 75%, 
+      hsl(210, 50%, 6%) 100%);
+    background-size: 400% 400%;
+    animation: divineGradient 15s ease infinite;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+    animation: divineFloat 20s ease-in-out infinite;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: -1;
+    animation: sparkle 10s linear infinite;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3);
   }
   
-  /* Better tap targets for mobile */
   button, a {
     @apply cursor-pointer;
   }
@@ -78,6 +116,9 @@
   .animation-delay-600 {
     animation-delay: 600ms;
   }
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
   
   .text-balance {
     text-wrap: balance;
@@ -85,28 +126,102 @@
   
   .smooth-fade-in {
     @apply opacity-0 transform translate-y-4;
-    animation: smoothFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: smoothFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   
   .chat-message-appear {
     @apply opacity-0 transform translate-y-2;
-    animation: chatAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: chatAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .text-glow {
-    text-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+    text-shadow: 
+      0 0 10px rgba(168, 85, 247, 0.8),
+      0 0 20px rgba(168, 85, 247, 0.6),
+      0 0 30px rgba(168, 85, 247, 0.4);
   }
   
   .text-glow-accent {
-    text-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+    text-shadow: 
+      0 0 10px rgba(245, 158, 11, 0.9),
+      0 0 20px rgba(245, 158, 11, 0.7),
+      0 0 30px rgba(245, 158, 11, 0.5),
+      0 0 40px rgba(245, 158, 11, 0.3);
   }
   
   .box-glow {
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+    box-shadow: 
+      0 0 20px rgba(168, 85, 247, 0.4),
+      0 0 40px rgba(168, 85, 247, 0.2),
+      inset 0 0 20px rgba(168, 85, 247, 0.1);
   }
   
   .box-glow-accent {
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+    box-shadow: 
+      0 0 20px rgba(245, 158, 11, 0.5),
+      0 0 40px rgba(245, 158, 11, 0.3),
+      inset 0 0 20px rgba(245, 158, 11, 0.1);
+  }
+
+  .divine-card {
+    background: linear-gradient(135deg, 
+      rgba(168, 85, 247, 0.1) 0%, 
+      rgba(245, 158, 11, 0.1) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba(168, 85, 247, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .divine-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      0 0 40px rgba(168, 85, 247, 0.4),
+      0 0 60px rgba(245, 158, 11, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .divine-button {
+    background: linear-gradient(135deg, 
+      rgba(168, 85, 247, 0.8) 0%, 
+      rgba(245, 158, 11, 0.8) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 4px 20px rgba(168, 85, 247, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .divine-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(255, 255, 255, 0.4), 
+      transparent);
+    transition: left 0.5s;
+  }
+
+  .divine-button:hover::before {
+    left: 100%;
+  }
+
+  .divine-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 8px 30px rgba(168, 85, 247, 0.4),
+      0 0 20px rgba(245, 158, 11, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
   
   .fb-browser-fix {
@@ -123,32 +238,78 @@
     transform: translateZ(0);
   }
   
-  /* Optimize touch interactions */
   .touch-manipulation {
     touch-action: manipulation;
   }
+
+  .divine-spacing {
+    padding: 4rem 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .divine-spacing {
+      padding: 6rem 3rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .divine-spacing {
+      padding: 8rem 4rem;
+    }
+  }
 }
 
-/* Keep existing animation keyframes */
+@keyframes divineGradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes divineFloat {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(2deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(-2deg);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
 @keyframes smoothFadeIn {
   0% {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(30px) scale(0.95);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 @keyframes chatAppear {
   0% {
     opacity: 0;
-    transform: translateY(5px);
+    transform: translateY(10px) scale(0.98);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -157,7 +318,7 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.7;
   }
 }
 
@@ -166,7 +327,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
 }
 
@@ -179,25 +340,30 @@
   }
 }
 
-/* Keep existing classes */
 .glass-morphism {
-  @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg;
+  @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 100%);
 }
 
 .hover-lift {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px -5px rgba(59, 130, 246, 0.3);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(168, 85, 247, 0.3);
 }
 
 .shimmer-effect {
   background: linear-gradient(90deg, 
     transparent 0%, 
-    rgba(59, 130, 246, 0.2) 25%, 
-    rgba(59, 130, 246, 0.2) 50%,
+    rgba(168, 85, 247, 0.4) 25%, 
+    rgba(245, 158, 11, 0.4) 50%,
+    rgba(168, 85, 247, 0.4) 75%,
     transparent 100%
   );
   background-size: 200% 100%;
@@ -205,23 +371,20 @@
 }
 
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 8s ease-in-out infinite;
 }
 
-/* Better iOS compatibility */
 @supports (-webkit-touch-callout: none) {
   html, body {
     -webkit-text-size-adjust: 100%;
     height: -webkit-fill-available;
   }
   
-  /* Disable zooming on input fields for iOS */
   input, select, textarea {
     font-size: 16px;
   }
 }
 
-/* Legacy browser support */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   body {
     display: flex;
@@ -229,7 +392,6 @@
   }
 }
 
-/* Reduce animation complexity on low-powered devices */
 @media (prefers-reduced-motion) {
   .smooth-fade-in, .chat-message-appear {
     animation: none;
@@ -238,6 +400,14 @@
   }
   
   .animate-float {
+    animation: none;
+  }
+  
+  body {
+    animation: none;
+  }
+  
+  body::before, body::after {
     animation: none;
   }
 }
