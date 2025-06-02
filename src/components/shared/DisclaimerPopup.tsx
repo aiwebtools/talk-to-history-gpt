@@ -61,7 +61,7 @@ const DisclaimerPopup = ({ onAgree }: DisclaimerPopupProps) => {
             <ul className="space-y-2 pl-4">
               <li>• Conversations are powered by AI and may not always be historically accurate</li>
               <li>• Historical figures' responses are simulations based on available information</li>
-              <li>• This application is for educational and entertainment purposes only</li>
+              <li>• This application is for educational, informational, and research purposes only</li>
               <li>• Conversations are subject to OpenAI's privacy policy</li>
             </ul>
             
@@ -72,6 +72,13 @@ const DisclaimerPopup = ({ onAgree }: DisclaimerPopupProps) => {
               </p>
               <p className="text-sm mt-1">
                 • <span className="font-bold">Free accounts:</span> Limited interactions every few hours
+              </p>
+            </div>
+
+            <div className="mt-3 bg-accent/20 p-3 rounded-lg">
+              <p className="text-xs text-white/80">
+                <strong>Disclaimer:</strong> This tool is intended for informational, educational, and research purposes only. 
+                Historical simulations are AI-generated and should not be considered as factual historical records.
               </p>
             </div>
           </div>
