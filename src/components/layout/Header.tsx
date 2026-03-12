@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
               <span className="text-primary">Talk to</span> History
             </h1>
             <span className="text-xs text-muted-foreground">
-              Presented by <a href="https://aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">AiWebTools.Ai</a>
+              Presented by <a href="https://aiwebtools.lovable.app/?via=aiwebtools" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">AiWebTools.Ai</a>
             </span>
           </div>
         </div>
