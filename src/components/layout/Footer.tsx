@@ -71,7 +71,7 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
             </a>
             
             <a 
-              href="https://www.aiwebtools.ai" 
+              href="https://aiwebtools.lovable.app/?via=aiwebtools" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="w-full sm:w-auto"

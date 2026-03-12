@@ -113,7 +113,7 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
               </Button>
             </a>
             
-            <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="w-full">
+            <a href="https://aiwebtools.lovable.app/?via=aiwebtools" target="_blank" rel="noopener noreferrer" className="w-full">
               <Button 
                 variant="primary" 
                 size="sm" 
