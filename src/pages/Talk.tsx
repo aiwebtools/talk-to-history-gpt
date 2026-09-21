@@ -4,7 +4,15 @@ import { ArrowLeft, Send, Volume2, VolumeX, Loader2, Sparkles, Square } from 'lu
 import { cn } from '@/lib/utils';
 import Button from '@/components/shared/Button';
 import { toast } from '@/hooks/use-toast';
-import { speak, streamReply, summonPersona, type ChatMessage, type Persona } from '@/lib/talkApi';
+import {
+  isCreditsExhausted,
+  speak,
+  streamReply,
+  summonPersona,
+  type ChatMessage,
+  type Persona,
+} from '@/lib/talkApi';
+import CreditsExhausted from '@/components/shared/CreditsExhausted';
 
 const STORAGE_KEY = 'tth-live-conversation';
 
@@ -34,6 +42,7 @@ const Talk: React.FC = () => {
   const [thinking, setThinking] = useState(false);
   const [speakingId, setSpeakingId] = useState<string | null>(null);
   const [voiceOn, setVoiceOn] = useState(true);
+  const [creditsOut, setCreditsOut] = useState(false);
 
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -93,6 +102,10 @@ const Talk: React.FC = () => {
         await audio.play();
       } catch (error) {
         setSpeakingId(null);
+        if (isCreditsExhausted(error)) {
+          setCreditsOut(true);
+          return;
+        }
         toast({
           title: 'Voice unavailable',
           description: error instanceof Error ? error.message : 'Please try again.',
@@ -121,6 +134,11 @@ const Talk: React.FC = () => {
       setFigureInput('');
       if (voiceOn) void playVoice(greeting, found);
     } catch (error) {
+      if (isCreditsExhausted(error)) {
+        setCreditsOut(true);
+        setSummoning(false);
+        return;
+      }
       toast({
         title: 'Could not reach them',
         description: error instanceof Error ? error.message : 'Please try another name.',
@@ -158,6 +176,11 @@ const Talk: React.FC = () => {
       }
     } catch (error) {
       setMessages((prev) => prev.filter((m) => m.id !== replyId || m.content.length > 0));
+      if (isCreditsExhausted(error)) {
+        setCreditsOut(true);
+        setThinking(false);
+        return;
+      }
       toast({
         title: 'The conversation was interrupted',
         description: error instanceof Error ? error.message : 'Please try again.',
@@ -177,15 +200,21 @@ const Talk: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <CreditsExhausted open={creditsOut} onClose={() => setCreditsOut(false)} />
       <header className="py-3 px-4 sm:px-6 border-b border-border sticky top-0 z-50 bg-background/95 backdrop-blur-sm">
         <div className="container max-w-4xl mx-auto flex items-center justify-between gap-3">
           <Link to="/" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft size={18} />
             <span className="hidden sm:inline">Back to Home</span>
           </Link>
-          <h1 className="text-base sm:text-xl font-serif truncate">
-            <span className="text-primary">Live</span> Conversation
-          </h1>
+          <div className="flex flex-col items-center min-w-0">
+            <h1 className="text-base sm:text-xl font-serif truncate">
+              <span className="text-primary">Live</span> Conversation
+            </h1>
+            <span className="text-[9px] sm:text-[10px] uppercase tracking-wide text-muted-foreground">
+              (INSITE VERSION)
+            </span>
+          </div>
           <div className="flex items-center gap-2">
             <button
               onClick={() => {

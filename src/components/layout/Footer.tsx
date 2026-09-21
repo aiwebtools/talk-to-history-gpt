@@ -66,7 +66,7 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
                 className="w-full flex items-center justify-center gap-2 touch-manipulation" 
                 icon={<Clock size={16} />}
               >
-                TIME MACHINE GPT
+                TIME MACHINE GPT <span className="text-[10px] opacity-80">(EXTERNAL TOOL)</span>
               </Button>
             </a>
             
@@ -83,7 +83,7 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
                 className="w-full flex items-center justify-center gap-2 touch-manipulation" 
                 icon={<Layers size={16} />}
               >
-                MORE FREE AI TOOLS
+                MORE FREE AI TOOLS <span className="text-[10px] opacity-80">(EXTERNAL SITE)</span>
               </Button>
             </a>
           </nav>

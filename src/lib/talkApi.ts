@@ -21,14 +21,33 @@ const HEADERS = {
   Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
 };
 
-async function readError(response: Response, fallback: string) {
-  try {
-    const data = await response.json();
-    return data?.error ? String(data.error) : fallback;
-  } catch {
-    return fallback;
+/** Thrown when the shared community AI allowance is exhausted (402 / 429). */
+export class CreditsExhaustedError extends Error {
+  readonly isCreditsExhausted = true;
+  constructor(message = 'Community AI credits have run out for today.') {
+    super(message);
+    this.name = 'CreditsExhaustedError';
   }
 }
+
+export function isCreditsExhausted(error: unknown): boolean {
+  return error instanceof CreditsExhaustedError;
+}
+
+async function raise(response: Response, fallback: string): Promise<never> {
+  if (response.status === 402 || response.status === 429) {
+    throw new CreditsExhaustedError();
+  }
+  let message = fallback;
+  try {
+    const data = await response.json();
+    if (data?.error) message = String(data.error);
+  } catch {
+    /* keep fallback */
+  }
+  throw new Error(message);
+}
+
 
 export async function summonPersona(figure: string): Promise<Persona> {
   const response = await fetch(`${BASE}/history-persona`, {
@@ -37,7 +56,7 @@ export async function summonPersona(figure: string): Promise<Persona> {
     body: JSON.stringify({ figure }),
   });
   if (!response.ok) {
-    throw new Error(await readError(response, 'That soul could not be reached. Try another name.'));
+    await raise(response, 'That soul could not be reached. Try another name.');
   }
   return response.json();
 }
@@ -59,7 +78,7 @@ export async function streamReply(
   });
 
   if (!response.ok || !response.body) {
-    throw new Error(await readError(response, 'The conversation was interrupted. Please try again.'));
+    await raise(response, 'The conversation was interrupted. Please try again.');
   }
 
   const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();
@@ -96,7 +115,7 @@ export async function speak(text: string, persona: Persona, signal?: AbortSignal
     body: JSON.stringify({ text, voice: persona.voice, style: persona.voiceStyle }),
   });
   if (!response.ok) {
-    throw new Error(await readError(response, 'The voice fell silent. Please try again.'));
+    await raise(response, 'The voice fell silent. Please try again.');
   }
   return response.blob();
 }
