@@ -1,6 +1,6 @@
 
 import React, { useState, useCallback } from 'react';
-import { Clock, Menu, X, MessageSquare, Layers } from 'lucide-react';
+import { Clock, Menu, X, MessageSquare, Layers, Mic } from 'lucide-react';
 import Button from '@/components/shared/Button';
 import { AppState } from '@/lib/types';
 
@@ -123,6 +123,17 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
         }`}
       >
         <div className="flex flex-col space-y-2 px-1">
+          <a href="/talk" className="w-full" onClick={closeMobileMenu}>
+            <Button
+              variant="secondary"
+              size="sm"
+              className="w-full flex items-center justify-center gap-2 touch-manipulation"
+              icon={<Mic size={16} />}
+            >
+              TALK LIVE
+            </Button>
+          </a>
+
           <a href="https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt" target="_blank" rel="noopener noreferrer" className="w-full" onClick={closeMobileMenu}>
             <Button 
               variant="primary" 
