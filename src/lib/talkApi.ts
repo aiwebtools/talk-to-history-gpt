@@ -21,14 +21,33 @@ const HEADERS = {
   Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
 };
 
-async function readError(response: Response, fallback: string) {
-  try {
-    const data = await response.json();
-    return data?.error ? String(data.error) : fallback;
-  } catch {
-    return fallback;
+/** Thrown when the shared community AI allowance is exhausted (402 / 429). */
+export class CreditsExhaustedError extends Error {
+  readonly isCreditsExhausted = true;
+  constructor(message = 'Community AI credits have run out for today.') {
+    super(message);
+    this.name = 'CreditsExhaustedError';
   }
 }
+
+export function isCreditsExhausted(error: unknown): boolean {
+  return error instanceof CreditsExhaustedError;
+}
+
+async function raise(response: Response, fallback: string): Promise<never> {
+  if (response.status === 402 || response.status === 429) {
+    throw new CreditsExhaustedError();
+  }
+  let message = fallback;
+  try {
+    const data = await response.json();
+    if (data?.error) message = String(data.error);
+  } catch {
+    /* keep fallback */
+  }
+  throw new Error(message);
+}
+
 
 export async function summonPersona(figure: string): Promise<Persona> {
   const response = await fetch(`${BASE}/history-persona`, {
