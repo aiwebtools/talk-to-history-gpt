@@ -61,6 +61,17 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
         </button>
         
         <div className="hidden md:flex items-center gap-2 lg:gap-3 flex-shrink-0">
+          <a href="/talk">
+            <Button
+              variant="secondary"
+              size="sm"
+              className="flex items-center gap-2 whitespace-nowrap"
+              icon={<Mic size={16} />}
+            >
+              TALK LIVE
+            </Button>
+          </a>
+
           <a href="https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt" target="_blank" rel="noopener noreferrer">
             <Button 
               variant="primary" 
