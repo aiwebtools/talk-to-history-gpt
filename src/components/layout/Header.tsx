@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
 
   return (
     <header className="py-3 sm:py-4 px-4 sm:px-6 border-b border-border sticky top-0 z-50 bg-background/95 backdrop-blur-sm">
-      <div className="container max-w-6xl mx-auto flex justify-between items-center">
+      <div className="container max-w-7xl mx-auto flex justify-between items-center gap-4">
         <div className="flex items-center gap-2 min-w-0">
           <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
             <svg
@@ -55,19 +55,19 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
         
         <button 
           onClick={toggleMobileMenu}
-          className="md:hidden flex items-center justify-center p-2 rounded-md text-primary touch-manipulation active:scale-95 transition-transform"
+          className="xl:hidden flex items-center justify-center p-2 rounded-md text-primary touch-manipulation active:scale-95 transition-transform"
           aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         
-        <div className="hidden md:flex items-center gap-2 lg:gap-3 flex-shrink-0">
+        <div className="hidden xl:flex items-center gap-2 flex-shrink-0">
           <a href={TALK_LIVE_INSITE.url}>
             <Button
               variant="secondary"
               size="sm"
-              className="flex items-center gap-2 whitespace-nowrap"
+              className="flex items-center gap-1.5 whitespace-nowrap px-2.5 text-xs"
               icon={<Mic size={16} />}
             >
               {TALK_LIVE_INSITE.name} <VersionBadge version={TALK_LIVE_INSITE.version} />
@@ -78,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
             <Button 
               variant="primary" 
               size="sm" 
-              className="flex items-center gap-2 whitespace-nowrap" 
+              className="flex items-center gap-1.5 whitespace-nowrap px-2.5 text-xs" 
               icon={<MessageSquare size={16} />}
             >
               {TALK_TO_HISTORY_CHATGPT.name} <VersionBadge version={TALK_TO_HISTORY_CHATGPT.version} />
@@ -89,7 +89,7 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
             <Button 
               variant="outline" 
               size="sm" 
-              className="flex items-center gap-2 whitespace-nowrap" 
+              className="flex items-center gap-1.5 whitespace-nowrap px-2.5 text-xs" 
               icon={<Clock size={16} />}
             >
               {TIME_MACHINE_GPT.name} <VersionBadge version={TIME_MACHINE_GPT.version} />
@@ -100,7 +100,7 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
             <Button 
               variant="primary" 
               size="sm" 
-              className="flex items-center gap-2 whitespace-nowrap" 
+              className="flex items-center gap-1.5 whitespace-nowrap px-2.5 text-xs" 
               icon={<Layers size={16} />}
             >
               MORE AI TOOLS <VersionBadge version={MORE_AI_TOOLS.version} />
@@ -120,7 +120,7 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
       
       {/* Mobile menu with instant transition */}
       <div 
-        className={`md:hidden overflow-hidden transition-all duration-200 ease-out ${
+        className={`xl:hidden overflow-hidden transition-all duration-200 ease-out ${
           mobileMenuOpen ? 'max-h-96 opacity-100 mt-3 pt-3 border-t border-border' : 'max-h-0 opacity-0'
         }`}
       >
