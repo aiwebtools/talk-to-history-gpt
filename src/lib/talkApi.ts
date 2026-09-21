@@ -1,0 +1,102 @@
+export type Persona = {
+  name: string;
+  title?: string;
+  era?: string;
+  origin?: string;
+  voice?: string;
+  voiceStyle?: string;
+  greeting?: string;
+};
+
+export type ChatMessage = {
+  id: string;
+  role: 'user' | 'assistant';
+  content: string;
+};
+
+const BASE = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1`;
+const HEADERS = {
+  'Content-Type': 'application/json',
+  apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string,
+  Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+};
+
+async function readError(response: Response, fallback: string) {
+  try {
+    const data = await response.json();
+    return data?.error ? String(data.error) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+export async function summonPersona(figure: string): Promise<Persona> {
+  const response = await fetch(`${BASE}/history-persona`, {
+    method: 'POST',
+    headers: HEADERS,
+    body: JSON.stringify({ figure }),
+  });
+  if (!response.ok) {
+    throw new Error(await readError(response, 'That soul could not be reached. Try another name.'));
+  }
+  return response.json();
+}
+
+export async function streamReply(
+  persona: Persona,
+  messages: ChatMessage[],
+  onDelta: (text: string) => void,
+  signal?: AbortSignal,
+): Promise<void> {
+  const response = await fetch(`${BASE}/history-chat`, {
+    method: 'POST',
+    headers: HEADERS,
+    signal,
+    body: JSON.stringify({
+      persona,
+      messages: messages.map((m) => ({ role: m.role, content: m.content })),
+    }),
+  });
+
+  if (!response.ok || !response.body) {
+    throw new Error(await readError(response, 'The conversation was interrupted. Please try again.'));
+  }
+
+  const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();
+  let buffer = '';
+
+  while (true) {
+    const { value, done } = await reader.read();
+    if (done) break;
+    buffer += value;
+
+    let newlineIndex: number;
+    while ((newlineIndex = buffer.indexOf('\n')) !== -1) {
+      const line = buffer.slice(0, newlineIndex).trim();
+      buffer = buffer.slice(newlineIndex + 1);
+      if (!line.startsWith('data:')) continue;
+      const payload = line.slice(5).trim();
+      if (!payload || payload === '[DONE]') continue;
+      try {
+        const parsed = JSON.parse(payload);
+        const delta = parsed?.choices?.[0]?.delta?.content;
+        if (delta) onDelta(delta);
+      } catch {
+        /* partial chunk, ignore */
+      }
+    }
+  }
+}
+
+export async function speak(text: string, persona: Persona, signal?: AbortSignal): Promise<Blob> {
+  const response = await fetch(`${BASE}/history-voice`, {
+    method: 'POST',
+    headers: HEADERS,
+    signal,
+    body: JSON.stringify({ text, voice: persona.voice, style: persona.voiceStyle }),
+  });
+  if (!response.ok) {
+    throw new Error(await readError(response, 'The voice fell silent. Please try again.'));
+  }
+  return response.blob();
+}
