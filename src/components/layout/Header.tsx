@@ -79,10 +79,10 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
               className="flex items-center gap-2 whitespace-nowrap" 
               icon={<MessageSquare size={16} />}
             >
-              TALK TO HISTORY GPT
+              TALK TO HISTORY GPT <span className="text-[10px] opacity-80">(CHATGPT VERSION)</span>
             </Button>
           </a>
-          
+
           <a href="https://time-machine-gpt.lovable.app/" target="_blank" rel="noopener noreferrer">
             <Button 
               variant="outline" 
@@ -141,7 +141,7 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
               className="w-full flex items-center justify-center gap-2 touch-manipulation" 
               icon={<MessageSquare size={16} />}
             >
-              TALK TO HISTORY GPT
+              TALK TO HISTORY GPT <span className="text-[10px] opacity-80">(CHATGPT VERSION)</span>
             </Button>
           </a>
           

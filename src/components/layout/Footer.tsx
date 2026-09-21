@@ -43,13 +43,13 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
               className="w-full sm:w-auto"
               aria-label="Access Talk to History GPT - Free AI Tool"
             >
-              <Button 
-                variant="secondary" 
-                size="sm" 
-                className="w-full flex items-center justify-center gap-2 touch-manipulation" 
+              <Button
+                variant="secondary"
+                size="sm"
+                className="w-full flex items-center justify-center gap-2 touch-manipulation"
                 icon={<MessageSquare size={16} />}
               >
-                TALK TO HISTORY GPT
+                TALK TO HISTORY GPT <span className="text-[10px] opacity-80">(CHATGPT VERSION)</span>
               </Button>
             </a>
             
