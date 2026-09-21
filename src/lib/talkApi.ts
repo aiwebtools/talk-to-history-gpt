@@ -56,7 +56,7 @@ export async function summonPersona(figure: string): Promise<Persona> {
     body: JSON.stringify({ figure }),
   });
   if (!response.ok) {
-    throw new Error(await readError(response, 'That soul could not be reached. Try another name.'));
+    await raise(response, 'That soul could not be reached. Try another name.');
   }
   return response.json();
 }
@@ -78,7 +78,7 @@ export async function streamReply(
   });
 
   if (!response.ok || !response.body) {
-    throw new Error(await readError(response, 'The conversation was interrupted. Please try again.'));
+    await raise(response, 'The conversation was interrupted. Please try again.');
   }
 
   const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();
@@ -115,7 +115,7 @@ export async function speak(text: string, persona: Persona, signal?: AbortSignal
     body: JSON.stringify({ text, voice: persona.voice, style: persona.voiceStyle }),
   });
   if (!response.ok) {
-    throw new Error(await readError(response, 'The voice fell silent. Please try again.'));
+    await raise(response, 'The voice fell silent. Please try again.');
   }
   return response.blob();
 }
