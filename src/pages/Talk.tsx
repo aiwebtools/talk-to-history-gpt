@@ -4,7 +4,15 @@ import { ArrowLeft, Send, Volume2, VolumeX, Loader2, Sparkles, Square } from 'lu
 import { cn } from '@/lib/utils';
 import Button from '@/components/shared/Button';
 import { toast } from '@/hooks/use-toast';
-import { speak, streamReply, summonPersona, type ChatMessage, type Persona } from '@/lib/talkApi';
+import {
+  isCreditsExhausted,
+  speak,
+  streamReply,
+  summonPersona,
+  type ChatMessage,
+  type Persona,
+} from '@/lib/talkApi';
+import CreditsExhausted from '@/components/shared/CreditsExhausted';
 
 const STORAGE_KEY = 'tth-live-conversation';
 
