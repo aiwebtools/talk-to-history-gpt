@@ -200,6 +200,7 @@ const Talk: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <CreditsExhausted open={creditsOut} onClose={() => setCreditsOut(false)} />
       <header className="py-3 px-4 sm:px-6 border-b border-border sticky top-0 z-50 bg-background/95 backdrop-blur-sm">
         <div className="container max-w-4xl mx-auto flex items-center justify-between gap-3">
           <Link to="/" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
