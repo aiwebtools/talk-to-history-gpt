@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import VersionBadge from '@/components/shared/VersionBadge';
 
 const VideoSection: React.FC = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -50,7 +51,7 @@ const VideoSection: React.FC = () => {
           rel="noopener noreferrer" 
           className="text-primary hover:underline"
         >
-          Watch on YouTube
+          Watch on YouTube <VersionBadge version="EXTERNAL SITE" className="ml-1 align-middle" />
         </a>
       </div>
     </div>
