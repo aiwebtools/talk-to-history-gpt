@@ -42,6 +42,7 @@ const Talk: React.FC = () => {
   const [thinking, setThinking] = useState(false);
   const [speakingId, setSpeakingId] = useState<string | null>(null);
   const [voiceOn, setVoiceOn] = useState(true);
+  const [creditsOut, setCreditsOut] = useState(false);
 
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -101,6 +102,10 @@ const Talk: React.FC = () => {
         await audio.play();
       } catch (error) {
         setSpeakingId(null);
+        if (isCreditsExhausted(error)) {
+          setCreditsOut(true);
+          return;
+        }
         toast({
           title: 'Voice unavailable',
           description: error instanceof Error ? error.message : 'Please try again.',
@@ -129,6 +134,11 @@ const Talk: React.FC = () => {
       setFigureInput('');
       if (voiceOn) void playVoice(greeting, found);
     } catch (error) {
+      if (isCreditsExhausted(error)) {
+        setCreditsOut(true);
+        setSummoning(false);
+        return;
+      }
       toast({
         title: 'Could not reach them',
         description: error instanceof Error ? error.message : 'Please try another name.',
@@ -166,6 +176,11 @@ const Talk: React.FC = () => {
       }
     } catch (error) {
       setMessages((prev) => prev.filter((m) => m.id !== replyId || m.content.length > 0));
+      if (isCreditsExhausted(error)) {
+        setCreditsOut(true);
+        setThinking(false);
+        return;
+      }
       toast({
         title: 'The conversation was interrupted',
         description: error instanceof Error ? error.message : 'Please try again.',
@@ -191,9 +206,14 @@ const Talk: React.FC = () => {
             <ArrowLeft size={18} />
             <span className="hidden sm:inline">Back to Home</span>
           </Link>
-          <h1 className="text-base sm:text-xl font-serif truncate">
-            <span className="text-primary">Live</span> Conversation
-          </h1>
+          <div className="flex flex-col items-center min-w-0">
+            <h1 className="text-base sm:text-xl font-serif truncate">
+              <span className="text-primary">Live</span> Conversation
+            </h1>
+            <span className="text-[9px] sm:text-[10px] uppercase tracking-wide text-muted-foreground">
+              (INSITE VERSION)
+            </span>
+          </div>
           <div className="flex items-center gap-2">
             <button
               onClick={() => {
