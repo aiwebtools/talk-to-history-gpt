@@ -2,7 +2,7 @@
 // Every external destination must carry a version label so users always know
 // where a button takes them.
 
-export type ToolVersion = 'INSITE VERSION' | 'CHATGPT VERSION' | 'EXTERNAL TOOL' | 'EXTERNAL SITE';
+export type ToolVersion = 'INSITE VERSION' | 'CHATGPT VERSION' | 'GEMINI VERSION' | 'EXTERNAL TOOL' | 'EXTERNAL SITE';
 
 export type ToolLink = {
   id: string;

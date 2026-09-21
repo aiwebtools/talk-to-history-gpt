@@ -3,6 +3,8 @@ import React, { useState, useCallback } from 'react';
 import { Clock, Menu, X, MessageSquare, Layers, Mic } from 'lucide-react';
 import Button from '@/components/shared/Button';
 import { AppState } from '@/lib/types';
+import VersionBadge from '@/components/shared/VersionBadge';
+import { MORE_AI_TOOLS, TALK_LIVE_INSITE, TALK_TO_HISTORY_CHATGPT, TIME_MACHINE_GPT, externalLinkProps } from '@/lib/externalTools';
 
 interface HeaderProps {
   appState: AppState;
@@ -46,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
               <span className="text-primary">Talk to</span> History
             </h1>
             <span className="text-[10px] sm:text-xs text-muted-foreground truncate">
-              Presented by <a href="https://aiwebtools.lovable.app/?via=aiwebtools" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">AiWebTools.Ai</a>
+              Presented by <a href={MORE_AI_TOOLS.url} {...externalLinkProps} className="font-medium hover:text-primary transition-colors">AiWebTools.Ai <VersionBadge version={MORE_AI_TOOLS.version} /></a>
             </span>
           </div>
         </div>
@@ -61,47 +63,47 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
         </button>
         
         <div className="hidden md:flex items-center gap-2 lg:gap-3 flex-shrink-0">
-          <a href="/talk">
+          <a href={TALK_LIVE_INSITE.url}>
             <Button
               variant="secondary"
               size="sm"
               className="flex items-center gap-2 whitespace-nowrap"
               icon={<Mic size={16} />}
             >
-              TALK LIVE <span className="text-[10px] opacity-80">(INSITE VERSION)</span>
+              {TALK_LIVE_INSITE.name} <VersionBadge version={TALK_LIVE_INSITE.version} />
             </Button>
           </a>
 
-          <a href="https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt" target="_blank" rel="noopener noreferrer">
+          <a href={TALK_TO_HISTORY_CHATGPT.url} {...externalLinkProps}>
             <Button 
               variant="primary" 
               size="sm" 
               className="flex items-center gap-2 whitespace-nowrap" 
               icon={<MessageSquare size={16} />}
             >
-              TALK TO HISTORY GPT <span className="text-[10px] opacity-80">(CHATGPT VERSION)</span>
+              {TALK_TO_HISTORY_CHATGPT.name} <VersionBadge version={TALK_TO_HISTORY_CHATGPT.version} />
             </Button>
           </a>
 
-          <a href="https://time-machine-gpt.lovable.app/" target="_blank" rel="noopener noreferrer">
+          <a href={TIME_MACHINE_GPT.url} {...externalLinkProps}>
             <Button 
               variant="outline" 
               size="sm" 
               className="flex items-center gap-2 whitespace-nowrap" 
               icon={<Clock size={16} />}
             >
-              TIME MACHINE GPT <span className="text-[10px] opacity-80">(EXTERNAL TOOL)</span>
+              {TIME_MACHINE_GPT.name} <VersionBadge version={TIME_MACHINE_GPT.version} />
             </Button>
           </a>
 
-          <a href="https://aiwebtools.lovable.app/?via=aiwebtools" target="_blank" rel="noopener noreferrer">
+          <a href={MORE_AI_TOOLS.url} {...externalLinkProps}>
             <Button 
               variant="primary" 
               size="sm" 
               className="flex items-center gap-2 whitespace-nowrap" 
               icon={<Layers size={16} />}
             >
-              MORE AI TOOLS <span className="text-[10px] opacity-80">(EXTERNAL SITE)</span>
+              MORE AI TOOLS <VersionBadge version={MORE_AI_TOOLS.version} />
             </Button>
           </a>
           
@@ -123,47 +125,47 @@ const Header: React.FC<HeaderProps> = ({ appState, handleBackToWelcome }) => {
         }`}
       >
         <div className="flex flex-col space-y-2 px-1">
-          <a href="/talk" className="w-full" onClick={closeMobileMenu}>
+          <a href={TALK_LIVE_INSITE.url} className="w-full" onClick={closeMobileMenu}>
             <Button
               variant="secondary"
               size="sm"
               className="w-full flex items-center justify-center gap-2 touch-manipulation"
               icon={<Mic size={16} />}
             >
-              TALK LIVE <span className="text-[10px] opacity-80">(INSITE VERSION)</span>
+              {TALK_LIVE_INSITE.name} <VersionBadge version={TALK_LIVE_INSITE.version} />
             </Button>
           </a>
 
-          <a href="https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt" target="_blank" rel="noopener noreferrer" className="w-full" onClick={closeMobileMenu}>
+          <a href={TALK_TO_HISTORY_CHATGPT.url} {...externalLinkProps} className="w-full" onClick={closeMobileMenu}>
             <Button 
               variant="primary" 
               size="sm" 
               className="w-full flex items-center justify-center gap-2 touch-manipulation" 
               icon={<MessageSquare size={16} />}
             >
-              TALK TO HISTORY GPT <span className="text-[10px] opacity-80">(CHATGPT VERSION)</span>
+              {TALK_TO_HISTORY_CHATGPT.name} <VersionBadge version={TALK_TO_HISTORY_CHATGPT.version} />
             </Button>
           </a>
           
-          <a href="https://time-machine-gpt.lovable.app/" target="_blank" rel="noopener noreferrer" className="w-full" onClick={closeMobileMenu}>
+          <a href={TIME_MACHINE_GPT.url} {...externalLinkProps} className="w-full" onClick={closeMobileMenu}>
             <Button 
               variant="outline" 
               size="sm" 
               className="w-full flex items-center justify-center gap-2 touch-manipulation" 
               icon={<Clock size={16} />}
             >
-              TIME MACHINE GPT <span className="text-[10px] opacity-80">(EXTERNAL TOOL)</span>
+              {TIME_MACHINE_GPT.name} <VersionBadge version={TIME_MACHINE_GPT.version} />
             </Button>
           </a>
           
-          <a href="https://aiwebtools.lovable.app/?via=aiwebtools" target="_blank" rel="noopener noreferrer" className="w-full" onClick={closeMobileMenu}>
+          <a href={MORE_AI_TOOLS.url} {...externalLinkProps} className="w-full" onClick={closeMobileMenu}>
             <Button 
               variant="primary" 
               size="sm" 
               className="w-full flex items-center justify-center gap-2 touch-manipulation" 
               icon={<Layers size={16} />}
             >
-              MORE AI TOOLS <span className="text-[10px] opacity-80">(EXTERNAL SITE)</span>
+              MORE AI TOOLS <VersionBadge version={MORE_AI_TOOLS.version} />
             </Button>
           </a>
           

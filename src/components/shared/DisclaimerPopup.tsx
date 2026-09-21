@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import Button from './Button';
+import VersionBadge from './VersionBadge';
+import { DISCLAIMERS_URL, externalLinkProps } from '@/lib/externalTools';
 
 interface DisclaimerPopupProps {
   onAgree: () => void;
@@ -79,7 +81,7 @@ const DisclaimerPopup = ({ onAgree }: DisclaimerPopupProps) => {
               <p className="text-xs text-white/80">
                 <strong>Disclaimer:</strong> This tool is intended for informational, educational, and research purposes only. 
                 Historical simulations are AI-generated and should not be considered as factual historical records.
-                For full terms, visit <a href="https://aiwebtools.lovable.app/disclaimers" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">our disclaimer page</a>.
+                For full terms, visit <a href={DISCLAIMERS_URL} {...externalLinkProps} className="text-accent hover:underline">our disclaimer page <VersionBadge version="EXTERNAL SITE" /></a>.
               </p>
             </div>
           </div>

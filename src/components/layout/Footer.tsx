@@ -2,6 +2,8 @@
 import React from 'react';
 import Button from '@/components/shared/Button';
 import { Clock, Layers, MessageSquare } from 'lucide-react';
+import VersionBadge from '@/components/shared/VersionBadge';
+import { DISCLAIMERS_URL, MORE_AI_TOOLS, TALK_TO_HISTORY_CHATGPT, TIME_MACHINE_GPT, externalLinkProps } from '@/lib/externalTools';
 
 interface FooterProps {
   isFacebookBrowser: boolean;
@@ -37,9 +39,8 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
           
           <nav className="flex flex-wrap justify-center gap-2 w-full md:w-auto">
             <a 
-              href="https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href={TALK_TO_HISTORY_CHATGPT.url} 
+              {...externalLinkProps}
               className="w-full sm:w-auto"
               aria-label="Access Talk to History GPT - Free AI Tool"
             >
@@ -49,14 +50,13 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
                 className="w-full flex items-center justify-center gap-2 touch-manipulation"
                 icon={<MessageSquare size={16} />}
               >
-                TALK TO HISTORY GPT <span className="text-[10px] opacity-80">(CHATGPT VERSION)</span>
+                {TALK_TO_HISTORY_CHATGPT.name} <VersionBadge version={TALK_TO_HISTORY_CHATGPT.version} />
               </Button>
             </a>
             
             <a 
-              href="https://time-machine-gpt.lovable.app/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href={TIME_MACHINE_GPT.url} 
+              {...externalLinkProps}
               className="w-full sm:w-auto"
               aria-label="Time Machine GPT - AI Historical Tool"
             >
@@ -66,14 +66,13 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
                 className="w-full flex items-center justify-center gap-2 touch-manipulation" 
                 icon={<Clock size={16} />}
               >
-                TIME MACHINE GPT <span className="text-[10px] opacity-80">(EXTERNAL TOOL)</span>
+                {TIME_MACHINE_GPT.name} <VersionBadge version={TIME_MACHINE_GPT.version} />
               </Button>
             </a>
             
             <a 
-              href="https://aiwebtools.lovable.app/?via=aiwebtools" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href={MORE_AI_TOOLS.url} 
+              {...externalLinkProps}
               className="w-full sm:w-auto"
               aria-label="AIWEBTOOLS.AI - Free AI Web Tools Collection"
             >
@@ -83,7 +82,7 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
                 className="w-full flex items-center justify-center gap-2 touch-manipulation" 
                 icon={<Layers size={16} />}
               >
-                MORE FREE AI TOOLS <span className="text-[10px] opacity-80">(EXTERNAL SITE)</span>
+                {MORE_AI_TOOLS.name} <VersionBadge version={MORE_AI_TOOLS.version} />
               </Button>
             </a>
           </nav>
@@ -98,13 +97,12 @@ const Footer: React.FC<FooterProps> = ({ isFacebookBrowser }) => {
               Free AI tools for informational, educational, and research purposes only.
             </p>
             <a 
-              href="https://aiwebtools.lovable.app/disclaimers" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href={DISCLAIMERS_URL} 
+              {...externalLinkProps}
               className="text-xs sm:text-sm font-medium text-primary hover:text-primary/80 transition-colors"
               aria-label="Terms of Service and Disclaimers"
             >
-              Terms of Service
+              Terms of Service <VersionBadge version="EXTERNAL SITE" className="ml-1 align-middle" />
             </a>
           </div>
           
