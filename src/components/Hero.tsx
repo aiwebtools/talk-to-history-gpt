@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import HeroHeader from './hero/HeroHeader';
 import StatisticsSection from './hero/StatisticsSection';
@@ -14,19 +14,11 @@ interface HeroProps {
   className?: string;
 }
 
-const Hero: React.FC<HeroProps> = ({
-  onStartConversation,
-  className
-}) => {
+const Hero: React.FC<HeroProps> = ({ className }) => {
   const [showDisclaimer, setShowDisclaimer] = useState(true);
 
   const handleStartClick = () => {
-    // Open the specified URL in a new window/tab
-    window.open('https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt', '_blank');
-
-    // Also call the original onStartConversation function if needed
-    // Commenting this out since we're redirecting instead
-    // onStartConversation();
+    window.open('https://chatgpt.com/g/g-kHdIkYTdG-talk-to-history-gpt', '_blank', 'noopener,noreferrer');
   };
 
   const handleDisclaimerAgree = () => {
