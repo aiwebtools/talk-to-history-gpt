@@ -72,6 +72,19 @@ const HeroHeader: React.FC<HeroHeaderProps> = ({ onStartClick }) => {
             <span className="relative z-10 text-white font-serif tracking-wide">Start Free AI Chat</span>
           </Button>
           
+          <div className="mt-6">
+            <a href="/talk">
+              <Button
+                variant="outline"
+                size="lg"
+                className="min-w-48 h-14 text-lg font-semibold"
+                aria-label="Talk to any historical figure with voice right here on this site"
+              >
+                🎙️ Talk Live With Voice — On This Site
+              </Button>
+            </a>
+          </div>
+
           <p className="mt-6 text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Start chatting with historical figures for free using our advanced AI technology. 
             Experience immersive conversations that bring history to life with AIWEBTOOLS.AI.
