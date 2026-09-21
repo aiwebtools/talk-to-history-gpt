@@ -69,7 +69,7 @@ const HeroHeader: React.FC<HeroHeaderProps> = ({ onStartClick }) => {
             className="min-w-48 h-16 text-xl font-bold divine-button relative overflow-hidden group px-12 py-4"
             aria-label="Start free AI conversation with historical figures"
           >
-            <span className="relative z-10 text-white font-serif tracking-wide">Start Free AI Chat <span className="text-sm opacity-90">(CHATGPT Version)</span></span>
+            <span className="relative z-10 text-white font-serif tracking-wide">Start Free AI Chat <span className="text-sm opacity-90">(CHATGPT VERSION)</span></span>
           </Button>
           
           <div className="mt-6">
@@ -80,7 +80,7 @@ const HeroHeader: React.FC<HeroHeaderProps> = ({ onStartClick }) => {
                 className="min-w-48 h-14 text-lg font-semibold"
                 aria-label="Talk to any historical figure with voice right here on this site"
               >
-                🎙️ Talk Live With Voice — On This Site
+                🎙️ Talk Live With Voice <span className="text-xs opacity-80">(INSITE VERSION)</span>
               </Button>
             </a>
           </div>
